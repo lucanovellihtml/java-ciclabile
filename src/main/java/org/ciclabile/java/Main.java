@@ -13,7 +13,7 @@ public class Main {
 		 * CICLO CHE COME CONDIZIONE UTILIZZA IL METODO PER CONTROLLARE SE CI SONO ELEMENTI ANCORA DA RESTITUIRE;
 		 * IL CICLO RESTITUISCE, TRAMITE METODO, L'ELEMENTO SUCCESSIVO RISPETTO ALL'ULTIMO ELEMENTO RESTITUITO E QUINDI ALL'ULTIMA INVOCAZIONE DEL METODO;
 		 */
-		int index = arrayInt.getArrayLength() - 1;
+		int index = arrayInt.getArrayInt().length- 1;
 		
 		while(arrayInt.hasAncorElementi(index)) {
 			System.out.println("- COUNT ---> " + index);
@@ -23,6 +23,14 @@ public class Main {
 		}
 		
 		System.out.println("- ELEMENT AVAILABLE ---> " + arrayInt.hasAncorElementi(index));
+		
+		
+		/*
+		 * BONUS;
+		 */
+		arrayInt.addElemento(100);
+		arrayInt.addElemento(200);
+		System.out.println("\n" + arrayInt.toString() + "\n");
 	}
 	
 }
