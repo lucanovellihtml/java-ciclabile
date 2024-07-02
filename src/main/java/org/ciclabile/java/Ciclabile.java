@@ -4,11 +4,13 @@ package org.ciclabile.java;
 public class Ciclabile {
 	
 	private int[] arrayInt;
-	private int arrayLength;
 	
 	public Ciclabile(int[] arrayInt) {
 		this.arrayInt = arrayInt;
-		this.arrayLength = arrayInt.length;
+	}
+	
+	public Ciclabile() {
+		this.arrayInt = new int[0];
 	}
 
 
@@ -21,29 +23,19 @@ public class Ciclabile {
 		this.arrayInt = arrayInt;
 	}
 
-	
-	public int getArrayLength() {
-		return arrayLength;
-	}
-
-
-	public void setArrayLength(int arrayLength) {
-		this.arrayLength = arrayLength;
-	}
-
 
 	
 	/*
 	 * METODO CHE RESTITUISCE IL PROSSIMO ELEMENTO RISPETTO ALL'ULTIMA VOLTA CHE E' STATO INVOCATO;
 	 */
 	public int getElementoSuccessivo(int index) {
-		int element = arrayInt[index];
+		int element = this.arrayInt[index];
 		return element;
 	}
 	
 	
 	/*
-	 * METODO CHE DEVE RESTITUIRE TRUE SE CI SONO ANCORA ELEMENTI DA RESTITUIRE
+	 * METODO CHE DEVE RESTITUIRE TRUE SE CI SONO ANCORA ELEMENTI DA RESTITUIRE;
 	 */
 	public boolean hasAncorElementi(int index) {
 		
@@ -51,6 +43,26 @@ public class Ciclabile {
 			return true;
 		
 		return false;
+	}
+	
+	
+	/*
+	 * METODO CHE PERMETTE DI AGGIUNGERE UN NUOVO INTERO;
+	 * CREO UN ARRAY NUOVO COPIA DELL'ARRAY VECCHIO, L'ARRAY NUOVO AVRA' LA DIMENSIONE DELL'ARRAY VECCHIO +1;
+	 * UNA VOLTA CHE L'ARRAY NUOVO HA LA STESSA STRUTTURA DATI, VIENE AGGIUNTO IL DATO NELL'ULTIMA POSIZIONE;
+	 * VIENE SOVRASCRITTO L'ARRAY VECCHIO CON L'ARRAY NUOVO;
+	 */ 
+	public void addElemento(int element) {
+		
+		int[] arrayIntNew = new int[this.arrayInt.length + 1];
+		
+		for(int i = 0; i < this.arrayInt.length; i++) {
+			arrayIntNew[i] = arrayInt[i];
+		}
+		
+		arrayIntNew[this.arrayInt.length] = element;
+		this.arrayInt = arrayIntNew;
+			
 	}
 	
 	
